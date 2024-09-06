@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="vege.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Guerrilla&family=Protest+Revolution&family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Grenze:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Iceberg&family=Knewave&display=swap" rel="stylesheet">
+    <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    <script>
+        function loadGoogleTranslate(){
+            new google.translate.TranslateElement("lang");
+        }
+    </script>
+</head>
+<body>
+    <div class="vegmain">
+    <div class="navi">
+        <h4><span>Agro-</span>connect</h4>
+        <nav>
+            <li><a href="main.html">Home</a></li>
+            <li><a href="agro1.html">Logout</a></li>
+        </nav>
+    </div>
+    <div id="lang"></div>
+    <div class="slider">
+        <figure>
+            <img src="23-03-2022-1705695764-1648025690.jpg" alt="">
+            <img src="23-03-2022-1710480436-1648025710.jpg" alt="">
+            <img src="23-03-2022-2026391728-1648025647.jpg" alt="">
+            <img src="23-03-2022-352697769-1648025725.jpg" alt="">
+       </figure>
+    </div>
+    <div id="vegposts"></div>
+    <div class="addpost" style="width: 30px;height: 30px;">
+        <a href="addpost.html"><img src="paper-plane.png" alt=""></a>
+    </div>
+    </div>
+    <script>
+        window.onload = async function() {
+            try {
+                const response = await fetch('http://localhost:3000/posts'); // Corrected URL
+                if (!response.ok) {
+                    throw new Error('Failed to fetch user data');
+                }
+                const userData = await response.json();
+    
+                const userDataContainer = document.getElementById('vegposts');
+                userDataContainer.innerHTML = '';
+    
+                userData.forEach(user => {
+                    const userDiv = document.createElement('div');
+                    userDiv.className="submission";
+                    userDiv.onclick=()=>{
+                        window.location.href='addpost1.html';
+                    }
+                    userDiv.innerHTML = `
+                    
+            <div class="img">
+                <img src="uploads/${user.image}" alt="image" width="100%" height="100%">
+            </div>
+            <div class="details">
+                <div class="head">
+                 <h2>${user.shopname}</h2>
+                 <h3>Address:${user.place},${user.district}</h3>
+                 </div>
+                <div class="pro">
+                <div>
+                 <p>Product need:${user.product}</p>
+                 <p>Product quantity:${user.productquantity}</p>
+                 </div>
+                 <div class="main">
+                    <p>Owner:${user.name}</p>
+                    <p>Email:${user.email}</p>
+                    <p>Phone:${user.phone}</p>
+                 </div>
+                 </div>
+            </div>
+                    `;
+                    userDataContainer.appendChild(userDiv);
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        async function submit(data){
+            console.log(data);
+            var data1={mobileph:data};
+            fetch('http://localhost:3000/add1',{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify(data1)
+            }).then(response=>{
+                if(!response.ok){
+                    throw new Error('Failed to submit');
+                }
+                console.log('data submitted');
+                window.location.href='vege.html';
+            })
+            .catch(err=>{
+                console.error("error:",err);
+            });
+        }
+
+    </script>
+</body>
+</html>

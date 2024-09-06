@@ -1,0 +1,101 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.505),rgba(0, 0, 0, 0.505)),url(farmer3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+section{
+    position:absolute;
+}
+#login{
+    position: relative;
+    width: 380px;
+    height: 480px;
+    margin: 1% 120% auto;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.477);
+    border-radius: 30px;
+}
+.account{
+    width: 220px;
+    margin: auto;
+    position: relative;
+    box-shadow: 0 0  20px 9px rgb(91, 186, 91);
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+.button{
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline:none;
+    position: relative;
+}
+#btn{
+    top: 0;
+    left:0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(rgb(20, 180, 20),rgb(20, 180, 20));
+    border-radius: 30px;
+    transition: .5s;
+}
+.input{
+    top: 120px;
+    left: 40px;
+    width: 280px;
+    position: absolute;
+    transition: .5s;
+}
+.inp{
+    width: 100%;
+    padding: 10px 10px;
+    margin: 10px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 2px solid black;
+    background: transparent;
+    outline: none;
+}
+.sub{
+    width: 85%;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 2px;
+    padding: 10px 30px;
+    display: block;
+    border: 0;
+    background: rgb(20, 180, 20);
+    outline: none;
+    border-radius: 30px;
+}
+#llogin{
+    left: 50px;
+}
+#rregister{
+    left: 450px;
+}
+.image{
+    margin-left: 7px;
+    margin-top: 4px;
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+
+

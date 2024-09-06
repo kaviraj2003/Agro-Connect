@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Agro Connect</title>
+</head>
+<body>
+    <header>
+        <h1>Agro Connect</h1>
+    </header>
+
+    <main>
+        <form id="agroForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+            
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" id="mobile" placeholder="Enter your mobile number" required>
+
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" placeholder="Enter the product name" required>
+
+            <label for="place">Place:</label>
+            <input type="text" id="place" placeholder="Enter the place" required>
+
+            <label for="district">District:</label>
+            <input type="text" id="district" placeholder="Enter your district" required>
+
+            <label for="state">State:</label>
+            <input type="text" id="state" placeholder="Enter your state" required>
+
+            <label for="pincode">Pincode:</label>
+            <input type="text" id="pincode" placeholder="Enter your pincode" required>
+
+            <label for="content">Additional Content:</label>
+            <textarea id="content" placeholder="Enter additional content"></textarea>
+
+            <label for="image">Upload Image:</label>
+            <input type="file" id="image" accept="image/*" required>
+
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

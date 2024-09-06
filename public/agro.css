@@ -1,0 +1,57 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+.farm1{
+    width: 100%;
+    height: 100vh;
+    background:linear-gradient(rgba(0, 0, 0, 0.37),rgba(0,0,0,0.37)),url(farmer3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+.farm{
+    position: relative;
+    width: 50%;
+    height: 20%;
+    margin: 15% 10% auto;
+    color: white;
+}
+.farm h1{
+    font-size: 4rem;
+    font-family: "Protest Revolution", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.farm p{
+    font-family: "Kanit", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.farm button{
+    padding: 8px;
+    width: 25%;
+    color: white;
+    border:2px solid white;
+    font-family: "Protest Guerrilla", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background: transparent;
+}.farm button:hover{
+    background-color: black;
+}
+.farm{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.but{
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+
+}

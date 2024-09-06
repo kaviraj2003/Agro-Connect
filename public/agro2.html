@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>farmer's web</title>
+    <link rel="stylesheet" href="agro1.css">
+    
+</head>
+<body>
+    <section>
+        <div id="login">
+            <div class="account">
+                <div id="btn"></div>
+                <button class="button" onclick="login()">Login</button>
+                <button class="button" onclick="register()">Register</button>
+            </div>
+            <form action="http://localhost:3000/login" method="POST" class="input" id="llogin">
+                <input type="text" class="inp" value="" autocomplete="on" placeholder="Name" required>
+                <input type="text" class="inp" value="" autocomplete="on" placeholder="Phone" required>
+                <input type="password" class="inp" value="" autocomplete="off" placeholder="Password" required>
+                <button type="submit" class="sub">Login</button>
+            </form>
+            <form action="http://localhost:3000/register" method="POST" class="input" id="rregister">
+                <input type="text" class="inp" id="name" placeholder="Name" autocomplete="off" required>
+                <input type="text" id="place" class="inp" placeholder="place" autocomplete="off" required>
+                <input type="text" id="district" class="inp" placeholder="district" autocomplete="off" required>
+                <input type="text" id="phone" class="inp" placeholder="phone" autocomplete="off" required>
+                <input type="password" id="password" class="inp" placeholder="password" autocomplete="off" required>
+                <button type="submit" class="sub">Register</button>
+            </form>
+        </div>
+    </section>
+    <script>
+        let x=document.getElementById("llogin");
+let y=document.getElementById("rregister");
+let z=document.getElementById("btn");
+let a=document.getElementById("login");
+function register(){
+    y.style.top="80px"
+    x.style.left="-400px";
+    y.style.left="50px";
+    z.style.left="110px";
+}
+function login(){
+    x.style.left="50px";
+    y.style.left="450px";
+    z.style.left="0px";
+}
+    </script>
+    
+</body>
+</html>

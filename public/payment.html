@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="payment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Guerrilla&family=Protest+Revolution&family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Grenze:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Iceberg&family=Knewave&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main" id="main">
+        <div class="main1" id="main1">
+            <form action="http://localhost:3000/transact" method="post">
+                <div class="form1" id="form1">
+                <h2>Your <span>Bank</span> details</h2>
+                <input type="text" id="name" name="name" class="inp" placeholder="Account Holder's name" required>
+                <input type="number" id="acnum" name="acnum" class="inp" placeholder="Account Number" required>
+                <select name="bank" id="bank" class="inp">
+                    <option value="">Indian Overseas Bank</option>
+                    <option value="">State Bank of India</option>
+                    <option value="">Indian Bank</option>
+                    <option value="">ICICI Bank</option>
+                    <option value="">HDFC Bank</option>
+                </select>
+                <input type="number" id="ifsc" name="ifsc" class="inp" placeholder="IFSC Code" required>
+                <input type="text" id="branch" name="branch" class="inp" placeholder="Bank's Branch" required>
+                <input type="number" id="amount" name="amount" class="inp" placeholder="Transaction Amount" required>
+                <input type="password" id="pw" class="inp" placeholder="Enter PIN" required>
+                <button type="button" onclick="next()">Next</button> 
+            </div>
+            <div class="form2" id="form2">
+                <h2>Receiver's <span>Bank</span> details</h2>
+                <input type="text" id="rname" name="rname" class="inp" placeholder="Account Holder's name" required>
+                <input type="number" id="racnum" name="racnum" class="inp" placeholder="Account Number" required>
+                <select name="" id="rbank" name="rbank" class="inp">
+                    <option value="">Indian Overseas Bank</option>
+                    <option value="">State Bank of India</option>
+                    <option value="">Indian Bank</option>
+                    <option value="">ICICI Bank</option>
+                    <option value="">HDFC Bank</option>
+                </select>
+                <input type="number" id="rifsc" name="rifsc" class="inp" placeholder="IFSC Code" required>
+                <input type="text" id="rbranch" name="rbranch" class="inp" placeholder="Bank's Branch" required>
+                <section>
+                <button type="button" onclick="prev()">previous</button>
+                <button type="submit" id="btn">Pay</button>
+                </section>
+            </div>
+            </form>
+        </div>
+        <div class="popup" id="popup">
+            <img src="36ee99940bee91165c62ea1c64b2deac.gif" alt="mypic" class="tick">
+            <h1>Payment Success!</h1>
+            <br>
+            <p><em>Your Payment has been successfully completed</em></p>
+            <br>
+            <button class="ok" type="button" onclick="closePopup()">OK</button>
+        </div>
+        <div class="paypr" id="paypr">
+            <img src="payment-animation.gif" alt="">
+        </div>
+    </div>
+    <script>
+        let x=document.getElementById("form1");
+        let y=document.getElementById("form2");
+        function next(){
+            x.style.left="-330px";
+            y.style.left="-330px";
+        }
+        function prev(){
+            x.style.left="80px";
+            y.style.left="";
+        }
+        let popup=document.getElementById("popup");
+        let btn=document.getElementById("btn");
+        
+            function openPopup(){
+                setTimeout(function(){
+                popup.classList.add("open-popup");
+                },10000);
+                setTimeout(function(){
+                    paypr.classList.add("visible");
+                    main.classList.add("back");
+                    main1.classList.add("col");
+                },1000);
+                setTimeout(function(){
+                    paypr.classList.remove("visible");  
+                },10000);
+            }
+            function closePopup(){
+                popup.classList.remove("open-popup");
+                window.location.href="vege.html";
+            }
+            btn.addEventListener("click",openPopup);
+    </script>
+    
+</body>
+</html>

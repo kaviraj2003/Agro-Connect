@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="div.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Guerrilla&family=Protest+Revolution&family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Grenze:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Iceberg&family=Knewave&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="vegmain">
+        <div class="navi">
+            <h4><span>Agro-</span>connect</h4>
+            <nav>
+                <li><a href="main.html"></a>Home</li>
+                <li><a href="">Logout</a></li>
+            </nav>
+        </div>
+        <div id="lang"></div>
+        <div id="vegposts"></div>
+        </div>
+    <script>
+         window.onload = async function() {
+            try {
+                const response = await fetch('http://localhost:3000/post1'); // Corrected URL
+                if (!response.ok) {
+                    throw new Error('Failed to fetch user data');
+                }
+                const userData = await response.json();
+    
+                const userDataContainer = document.getElementById('vegposts');
+                userDataContainer.innerHTML = '';
+    
+                userData.forEach(user => {
+                    const userDiv = document.createElement('div');
+                    userDiv.className="submission";
+                    const imgDiv = document.createElement('div');
+                    imgDiv.className = 'img';
+
+                    user.image.forEach(image => {
+                        const imgElement = document.createElement('img');
+                        imgElement.className="image";
+                        imgElement.src = image;
+                        imgDiv.appendChild(imgElement);
+                    });
+                    userDiv.innerHTML = `
+                    
+            <div class="img">
+                ${imgDiv.innerHTML}
+            </div>
+            <div class="pop">
+                <span>&times;</span>
+                <img src="asus.jpg" alt="my pic"/>
+            </div>
+            <div class="details">
+                <div class="head">
+                 <h2><span>Farmer name:</span>${user.name}</h2>
+                 <h3><span>Address:</span>${user.place},${user.district}</h3>
+                 </div>
+                <div class="pro">
+                <div class="pro1">
+                 <p><span>Product:</span>${user.product}</p>
+                 <p><span>Product quantity(KG):</span>${user.productquantity}</p>
+                 </div>
+                 <div class="main">
+                    <p><span>Owner:</span>${user.name}</p>
+                    <p><span>Email:</span>${user.email}</p>
+                    <p><span>Phone:</span>${user.farmerphone}</p>
+                 </div>
+                 <div class="main1">
+                    <button type="button" onclick="submit('${user.farmerphone}','Accepted')" id="acc">Accept</button>
+                    <button type="button" onclick="submit('${user.farmerphone}','Rejected')"id="rej")">Reject</button>
+                    <button type="button"><a href="payment.html">Pay</a></button>
+                </div>
+                 </div>
+            </div>
+                    `;
+                    userDataContainer.appendChild(userDiv);
+                });
+            } catch (error) {
+                console.error(error);
+            }
+            document.querySelectorAll('.img img').forEach(image=>{
+            image.onclick=()=>{
+                document.querySelector('.pop').style.display='block';
+                document.querySelector('.pop img').src=image.getAttribute('src');
+            }
+        })
+        document.querySelector('.pop span').onclick=()=>{
+        document.querySelector('.pop').style.display='none';
+       }
+       
+       
+        };
+        function submit(Phone, stat) {
+            let x=document.getElementById("acc");
+            let y=document.getElementById("rej");
+            if(stat=='Accepted'&&y.innerHTML=="Reject"&&x.innerHTML=="Accept"){
+                x.innerHTML="Accepted";
+            }else if(stat=='Rejected'&&y.innerHTML=="Reject"&&x.innerHTML=="Accept"){
+                y.innerHTML="Rejected";
+            }
+       try {
+        console.log("hello");
+        const response =fetch('http://localhost:3000/add1', {
+            method:'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                mob:Phone,
+                sta:stat,
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to submit data');
+        }
+
+        console.log('Data submitted successfully');
+    } catch (error) {
+        console.error('Error occurred:', error);
+    }
+}
+        
+
+        
+    </script>
+</body>
+</html>
